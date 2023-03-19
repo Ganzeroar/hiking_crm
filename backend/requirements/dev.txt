@@ -1,0 +1,2 @@
+-r common.txt
+wemake-python-styleguide==0.17.0
