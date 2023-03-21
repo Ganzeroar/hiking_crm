@@ -1,8 +1,8 @@
-from rest_framework import generics
+from rest_framework.generics import ListAPIView
 from crm.models import Hikes
 from crm.serializers.client.hikes_serializer import HikesSerializer
 
 
-class AllHikes(generics.ListAPIView):
+class AllHikes(ListAPIView):
     queryset = Hikes.objects.all()
     serializer_class = HikesSerializer
