@@ -1,2 +1,2 @@
 from .statuses_model import Statuses
-from .hikes import Hikes
+from .hikes_model import Hikes
