@@ -10,7 +10,7 @@ class CreateApplicationTest(APITestCase):
     def test_create_application(self):
         number_of_applications_before_request = ApplicationsForHike.objects.count()
 
-        url = reverse('create-appeal')
+        url = reverse('create-application')
         hike = Hikes.objects.first()
         data = {
             'client': {
@@ -31,7 +31,7 @@ class CreateApplicationTest(APITestCase):
     def test_create_new_client_if_not_exist(self):
         number_of_clients_before_request = Clients.objects.count()
 
-        url = reverse('create-appeal')
+        url = reverse('create-application')
         hike = Hikes.objects.first()
 
         data = {
@@ -56,7 +56,7 @@ class CreateApplicationTest(APITestCase):
 
         client = Clients.objects.first()
 
-        url = reverse('create-appeal')
+        url = reverse('create-application')
         hike = Hikes.objects.first()
         data = {
             'client': {
@@ -76,7 +76,7 @@ class CreateApplicationTest(APITestCase):
         self.assertEqual(number_of_clients_before_request, number_of_clients_after_request)
 
     def test_return_error_if_hike_id_is_not_valid(self):
-        url = reverse('create-appeal')
+        url = reverse('create-application')
         data = {
             'client': {
                 'client_name': 'name1',
@@ -95,7 +95,7 @@ class CreateApplicationTest(APITestCase):
         self.assertEqual(response_data, 'A valid integer is required.')
 
     def test_return_error_if_client_data_is_not_valid(self):
-        url = reverse('create-appeal')
+        url = reverse('create-application')
         hike = Hikes.objects.first()
 
         data = {
