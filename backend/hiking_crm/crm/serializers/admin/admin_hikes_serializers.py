@@ -13,6 +13,21 @@ class AdminSpecificHikesSerializer(serializers.ModelSerializer):
         model = Hikes
         fields = '__all__'
 
+    def update(self, instance, validated_data):
+        hike_name = validated_data.get('hike_name')
+        hike_description = validated_data.get('hike_description')
+
+        Hikes.objects.filter(
+            pk=instance.id,
+        ).update(
+            hike_name=hike_name,
+            hike_description=hike_description,
+        )
+
+        return Hikes.objects.get(
+            pk=instance.id,
+        )
+
 
 class AdminHikeIdSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(label='id')
