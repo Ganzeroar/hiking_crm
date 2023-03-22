@@ -8,6 +8,12 @@ class AdminHikesSerializer(serializers.ModelSerializer):
         fields = ['id', 'hike_name']
 
 
+class AdminSpecificHikesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Hikes
+        fields = '__all__'
+
+
 class AdminHikeIdSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(label='id')
 
