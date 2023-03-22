@@ -5,4 +5,12 @@ from rest_framework import serializers
 class HikesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hikes
-        fields = ['id', 'hike_name', 'hike_description']
+        fields = '__all__'
+
+
+class HikeIdSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(label='id')
+
+    class Meta:
+        model = Hikes
+        fields = ['id']
