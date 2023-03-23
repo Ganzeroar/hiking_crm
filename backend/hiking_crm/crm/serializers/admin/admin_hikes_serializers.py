@@ -1,14 +1,14 @@
 from crm.models import Hikes
-from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer, IntegerField
 
 
-class AdminHikesSerializer(serializers.ModelSerializer):
+class AdminHikesSerializer(ModelSerializer):
     class Meta:
         model = Hikes
         fields = ['id', 'hike_name']
 
 
-class AdminSpecificHikesSerializer(serializers.ModelSerializer):
+class AdminSpecificHikesSerializer(ModelSerializer):
     class Meta:
         model = Hikes
         fields = '__all__'
@@ -29,8 +29,8 @@ class AdminSpecificHikesSerializer(serializers.ModelSerializer):
         )
 
 
-class AdminHikeIdSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(label='id')
+class AdminHikeIdSerializer(ModelSerializer):
+    id = IntegerField(label='id')
 
     class Meta:
         model = Hikes

@@ -1,9 +1,9 @@
 from crm.models import Statuses
-from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer, IntegerField
 
 
-class StatusesSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(label='id')
+class StatusesSerializer(ModelSerializer):
+    id = IntegerField(label='id')
 
     class Meta:
         model = Statuses
