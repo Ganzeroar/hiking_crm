@@ -1,5 +1,5 @@
 from crm.models.applications_for_hike_model import ApplicationsForHike
-from crm.serializers.client.application_serializer import ApplicationSerializer
+from crm.serializers.client.application_serializers import ApplicationSerializer
 from rest_framework.generics import CreateAPIView
 
 

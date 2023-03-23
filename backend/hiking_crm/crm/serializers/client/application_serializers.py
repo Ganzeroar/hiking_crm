@@ -2,8 +2,8 @@ from crm.models import ApplicationsForHike
 from crm.models.clients_model import Clients
 from crm.models.hikes_model import Hikes
 from crm.models.statuses_model import Statuses
-from crm.serializers.client.clients_serializer import ClientsSerializer
-from crm.serializers.client.hikes_serializer import HikeIdSerializer
+from crm.serializers.client.clients_serializers import ClientsSerializer
+from crm.serializers.client.hikes_serializers import HikeIdSerializer
 from rest_framework import serializers
 
 
