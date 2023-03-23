@@ -94,7 +94,7 @@ class CreateApplicationTest(APITestCase):
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response_data, 'A valid integer is required.')
 
-    def test_return_error_if_client_data_is_not_valid(self):
+    def test_return_error_if_client_email_is_not_valid(self):
         url = reverse('create-application')
         hike = Hikes.objects.first()
 
@@ -114,3 +114,23 @@ class CreateApplicationTest(APITestCase):
 
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response_data, 'Enter a valid email address.')
+
+    def test_return_error_if_client_phone_is_not_valid(self):
+        url = reverse('create-application')
+        hike = Hikes.objects.first()
+
+        data = {
+            'client': {
+                'client_name': 'name',
+                'client_email': 'email2@qwe.com',
+                'client_phone': '123',
+            },
+            'hike': {
+                'id': hike.id,
+            },
+        }
+        response = self.client.post(url, data=data, format='json')
+        response_data = response.data.get('client').get('client_phone')[0]
+
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response_data, 'The phone number entered is not valid.')
