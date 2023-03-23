@@ -3,11 +3,11 @@ from crm.models.statuses_model import Statuses
 from crm.serializers.admin.clients_serializers import ClientsSerializer
 from crm.serializers.admin.hikes_serializers import HikesIdAndNameSerializer
 from crm.serializers.admin.statuses_serializers import StatusesSerializer
-from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer
 from rest_framework.exceptions import APIException
 
 
-class AllApplicationsSerializer(serializers.ModelSerializer):
+class AllApplicationsSerializer(ModelSerializer):
     client = ClientsSerializer()
     hike = HikesIdAndNameSerializer()
     status = StatusesSerializer()
