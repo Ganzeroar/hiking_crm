@@ -5,7 +5,7 @@ from rest_framework.test import APITestCase
 
 class UpdateHikeTest(APITestCase):
 
-    def test_update_application(self):
+    def test_update_hike(self):
         hike = Hikes.objects.first()
         url = reverse('update-hike', kwargs={'pk': hike.id})
 
@@ -23,7 +23,7 @@ class UpdateHikeTest(APITestCase):
 
         self.assertEqual(hike_after_update.hike_name, new_hike_name)
 
-    def test_update_application_return_error_if_name_invalid(self):
+    def test_update_hike_return_error_if_name_invalid(self):
         hike = Hikes.objects.first()
         url = reverse('update-hike', kwargs={'pk': hike.id})
 
