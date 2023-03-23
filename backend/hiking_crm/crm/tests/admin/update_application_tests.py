@@ -14,7 +14,6 @@ class UpdateApplicationTest(APITestCase):
         current_status = application.status
 
         new_status_id = 2 if current_status.id == 1 else 1
-
         new_status = Statuses.objects.get(id=new_status_id)
 
         data = {
